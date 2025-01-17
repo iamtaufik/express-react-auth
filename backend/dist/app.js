@@ -34,6 +34,8 @@ app.use('/api', routes_1.default);
 app.get('/', (req, res) => {
     res.json({
         uptime: process.uptime(),
+        ram: `${(process.memoryUsage().heapUsed / 1024 / 1024).toFixed(2)} MB`,
+        os: process.platform,
         message: 'OK',
     });
 });
